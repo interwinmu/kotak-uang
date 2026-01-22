@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<title>Kotak Uang</title>
+<style>
+body {
+    background:#111;
+    color:white;
+    font-family:Arial;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    height:100vh;
+}
+.box {
+    background:#1c1c1c;
+    padding:30px;
+    border-radius:10px;
+    width:300px;
+    text-align:center;
+}
+input {
+    width:100%;
+    padding:10px;
+    margin-top:10px;
+    border-radius:5px;
+    border:none;
+}
+button {
+    margin-top:15px;
+    width:100%;
+    padding:10px;
+    background:green;
+    border:none;
+    color:white;
+    border-radius:5px;
+    cursor:pointer;
+}
+.error {
+    color:red;
+    margin-top:10px;
+    display:none;
+}
+</style>
+</head>
+<body>
+
+<div class="box">
+    <h2>Masukkan Kode Tiket</h2>
+    <input type="text" id="kode" placeholder="Kode Tiket">
+    <button onclick="cekKode()">Tampilkan</button>
+    <div class="error" id="error">❌ Kode tidak valid</div>
+</div>
+
+<script>
+function cekKode() {
+    const kode = document.getElementById("kode").value;
+
+    // daftar kode valid
+    const kodeValid = ["ABC123","VIP999","KOTAK2025"];
+
+    if (kodeValid.includes(kode)) {
+        window.location.href = "hasil.html";
+    } else {
+        document.getElementById("error").style.display = "block";
+    }
+}
+</script>
+
+</body>
+</html>
